@@ -1,0 +1,523 @@
+Introduction to .NET
+
+DOTNET
+
+->Network enabled technology
+->Intellisense feature(.)
+->Product of Microsoft
+
+ASP and VB
+
+ASP->web
+VB->Windows
+
+
+DOTNET Languages.
+C#,F#,J#,VB.NET
+
+Other Languages:
+C,C++,PYTHON,VC++
+HTML,CSS,JAVASCRIPT,JQUERY,AJAX,XML
+
+Techology:
+ASP.NET,MVC,MVC-CORE ->(web)
+
+
+DOTNET ->It is Programming platform/framework 
+
+
+  4 types
+1. Console App
+   ->no GUI in console app(command prompt).
+   ->ATM m/c
+
+2. Windows App
+   ->Standalone/desktop app (GUI)
+   ->Msoffice,Tally
+
+3. Web App
+   ->gmail,shopping sites,facebook....
+   ->internet
+
+4. WEBSERVICE,WEBAPI
+   ->weatherforecaster api.
+
+
+Components of .NET
+
+1.CLR(common language runtime)
+
+->It is the "execution engine" of .NET
+->performs code execution and detection.
+->CLR has CLS and CTS components
+->performs Memory management.
+->performs Garbage collection(GC)
+->finalise() implicit
+->dispose()  explicit
+->cross language Interoperability(Interop).
+
+CTS->common type system (datatypes)
+CLS->common language specification (class,interface,override,abstract,sealed.....)
+
+
+
+2.BCL(Base class Library)
+
+reffered as super set of all Libraries.
+
+namespace-->n'class-->n'functions
+
+using System;
+using System.IO;
+using System.data;
+using System.collections;
+using System.collections.generics;
+using System.runtime.serialization;
+
+
+
+FCL(Framework class Library)
+using system.windows;
+using system.web;
+using system.web.mvc;
+
+
+.NET-FRAMEWORK
+->it is not open source.
+->application developed using .netfw is slow.
+->supports windows platform
+
+
+.NET-CORE
+->open-source
+->application developed using .netcore is faster.
+->supports windows,linux,MAC platform
+
+.NET-CODE EXECUTION STEPS
+
+.EXE                     
+void main()
+{
+lib1 obj=new lib1();
+}
+->Independent file
+->exe file can call any numbers of dll's
+
+
+
+
+.DLL
+->Dynamic link library
+->class file
+class lib1
+{
+func1----20()
+}
+->Dependent file.
+   
+
+
+"DLL HELL"-> application reffering the dll's, with same name were getting crashed.
+->DLL HELL issue is fixed in Visual-studio , by generating unique version no for dll's
+
+
+C#-PROGRAMMING
+
+->high-level programming language.
+->C# is Object oriented 
+
+
+using System;
+
+namespace CG_APP1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a, b;
+
+            a = 100;
+            b = 200;
+
+            int sum = a + b;
+
+            Console.Write("value of a={0},value of b={1},sum={2}",a,b,sum);
+            Console.WriteLine("value of a=" + a + " value of b="+b + " sum=" + sum);
+        }
+    }
+}
+
+
+ static void Main(string[] args)
+        {
+            int a, b;
+
+            Console.WriteLine("Enter 2 numbers a,b");
+            a =int.Parse(Console.ReadLine());
+            b= int.Parse(Console.ReadLine());
+
+            int sum = a + b;
+
+            Console.WriteLine("value of a={0},value of b={1},sum={2}",a,b,sum);
+
+            Console.WriteLine("value of a=" + a + " value of b="+b + " sum=" + sum);
+        }
+
+
+WAP to read 4 subject marks,find the total and average.
+
+system.Math
+static void Main(string[] args)
+        {
+            int a, b;
+
+            Console.WriteLine("Enter 2 numbers a,b");
+            a =int.Parse(Console.ReadLine());
+            b= int.Parse(Console.ReadLine());
+
+            double result = Math.Sqrt(a*b);
+
+            Console.WriteLine("Result="+result);
+        }
+
+WAP to find area of triangle using A=sqrt(s(s-a)*(s-b)*(s-c))
+s=(a+b+c)/2. a,b,c are 3 sides of triangle.
+
+
+Control statements
+2 types
+
+1.Conditional ->if,elseif,nested-elseif, switch-case
+
+2.Iterational->while,do-while,for,foreach
+
+
+ static void Main(string[] args)
+        {
+            char ch; //alpha/number/special char @
+
+            Console.WriteLine("enter a char data");
+            ch =char.Parse(Console.ReadLine());
+
+            if (ch >= 'A' && ch <= 'Z')
+                Console.WriteLine("char is captial-alphabet " + ch);
+            else if (ch >= 'a' && ch <= 'z')
+                Console.WriteLine("char is small-alphabet " + ch);
+            else if(ch>='0' && ch<='9')
+                Console.WriteLine("char is number " + ch);
+            else
+                Console.WriteLine("char is special " + ch);
+        }
+
+ static void Main(string[] args)
+        {
+            char ch; //vowel and consonants
+
+            Console.WriteLine("enter a alphabet"); //aeiou
+            ch =char.Parse(Console.ReadLine());
+
+            if (ch == 'A' || ch == 'E' || ch=='I' || ch=='O' || ch=='U' ||
+                ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                Console.WriteLine("char is vowel " + ch);
+            else
+                Console.WriteLine("char is consonant " + ch);
+        }
+
+WAP to check greatest of 3 numbers
+
+
+int.Parse
+int.tryparse
+
+static void Main(string[] args)
+        {
+            string s1 = "250";
+
+            int x = int.Parse(s1);
+           
+            Console.WriteLine("value of x=" + x);
+        }
+
+static void Main(string[] args)
+        {
+            string s1 = "100";
+            int result;
+
+            bool data= int.TryParse(s1,out result);
+
+            if (data)
+            {
+                Console.WriteLine(result);
+            }
+            else
+                Console.WriteLine("paring is failed");
+
+            //Console.WriteLine(data);
+            //Console.WriteLine(result);
+        }
+
+
+static void Main(string[] args)
+        {
+            string username, role;
+
+            Console.WriteLine("enter the username and role");
+            username = Console.ReadLine();
+            role = Console.ReadLine();
+
+            if (username=="john" && role=="admin")
+                Console.WriteLine("Login success");
+            else
+                Console.WriteLine("Login failed");
+        }
+
+
+Switch-case
+
+switch(choice)
+{
+case 1:
+      break;
+case 2:
+      break;
+Default:
+      break;
+}
+
+
+ static void Main(string[] args)
+        {
+            char choice; //int,char,string
+
+            Console.WriteLine("enter the your choice[a/b/c]");
+            choice = char.Parse(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 'a':
+                    Console.WriteLine("Your choice is C# and ASP.NET");
+                    break;
+                case 'b':
+                    Console.WriteLine("Your choice is C# and MVC");
+                    break;
+                case 'c':
+                    Console.WriteLine("Your choice is WEB_API");
+                    break;
+                default:
+                    Console.WriteLine("Your choice is Invalid");
+                    break;
+            }
+
+        }
+    }
+
+WAP using switch-case to find square and cube of number.
+
+WAP using switch-case to find sum,diff,product of 2 numbers '+','-','*'
+
+
+Iterational control statement
+
+while,do-while,for
+
+1.Initialise(min,start value)
+2.check/test condition
+3.increment/decrement
+
+static void Main(string[] args)
+        {
+            int i = 0;
+
+            while(i<10)
+            {
+                Console.WriteLine(i);
+                // i += 1; //i++;
+                i += 2;
+            }
+        }
+
+
+ static void Main(string[] args)
+        {
+            int i = 0;
+
+            do
+            {
+                Console.WriteLine(i);
+                // i += 1; //i++;
+                i += 2;
+            }
+            while (i < 10); //0>10
+
+        }
+
+ static void Main(string[] args)
+        {
+            for(int i=10;i<=100;i+=10)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+WAP to using for-loop to display multiplication table for a number.
+
+ static void Main(string[] args)
+        {
+            int n; //5*1=5 
+
+            Console.WriteLine("enter a  number");
+            n = int.Parse(Console.ReadLine());
+
+            for(int i=1;i<=10;i+=1)
+            {
+                Console.WriteLine(n+"*"+i+"="+(n*i));
+            }
+        }
+
+foreach
+
+Arrays in c#
+
+collection of homogenous elements
+group of elements of same type/kind
+
+ static void Main(string[] args)
+        {
+            int []a = new int[5] {10,20,30,40,50 };
+
+            int[] b = new int[4];
+
+            int[] c = new int[] {100,200,300,400,500,600,700 };
+
+            for(int i=0;i<a.Length;i++)
+            {
+                // Console.WriteLine(a[i]);
+                Console.WriteLine("a["+i+"]="+a[i]);
+            }
+
+            Console.WriteLine("enter the array elements for b");
+            for (int i = 0; i < b.Length; i++)
+            {
+                b[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("array elements of b");
+            for (int i = 0; i < b.Length; i++)
+            {
+                Console.WriteLine("b[" + i + "]=" + b[i]);
+            }
+        }
+    }
+
+ static void Main(string[] args)
+        {
+            int []a = new int[5] {10,20,30,40,50 };
+
+            int[] b = new int[4];
+
+            int[] c = new int[] {100,200,300,400,500,600,700 };
+
+            for(int i=0;i<a.Length;i++)
+            {
+                // Console.WriteLine(a[i]);
+                Console.WriteLine("a["+i+"]="+a[i]);
+            }
+
+            foreach(int x in a)
+            {
+                Console.WriteLine(x);
+            }
+        }
+
+
+  static void Main(string[] args)
+        {
+            int[] a = new int[5];
+            int[] b = new int[5];
+            int[] sum = new int[5];
+
+            Console.WriteLine("enter the array elements for a");
+            for (int i = 0; i < a.Length; i++)
+            {
+                a[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("enter the array elements for b");
+            for (int i = 0; i < b.Length; i++)
+            {
+                b[i] = int.Parse(Console.ReadLine());
+            }
+
+            Console.WriteLine("Sum of array a and b is");
+            for (int i=0;i<5;i++)
+            {
+                sum[i] = a[i] + b[i];
+                Console.WriteLine(sum[i]);
+            }
+
+        }
+
+
+String arrays
+
+static void Main(string[] args)
+        {
+            string[] course = new string[] {"1","c#.net","5600","2","sql","4500" };
+
+            foreach(string i in course)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+ static void Main(string[] args)
+        {
+            object[] course = new object[] {1,"c#.net",5600.00,2,"sql",4500.78 };
+
+            foreach(var i in course)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
+Two-Dimensional Array
+
+int [,]array1=new int[2,2];
+
+int [,]array2=new int[2,2]{{10,20},{30,40}};
+
+int [,]array3=new int[3,3]{{10,20,30},{30,40,50},{40,50,60}};
+
+
+      j=0       j=1     j=2
+
+i=0  10[00]    20[01]   30[02]
+
+
+i=1  30[10]    40[11]   50[12]
+
+
+i=2  40[20]    50[21]   60[22]
+
+
+class Program
+    {
+        static void Main(string[] args)
+        {
+            int[,] array1 = new int[2, 2];
+
+            int[,] array2 = new int[2, 2] { { 10, 20 }, { 30, 40 } };
+
+           
+             for(int i=0;i<2;i++)
+            {
+                for(int j=0;j<2;j++)
+                {
+                    //  Console.Write(array2[i, j]+"\t");
+                    Console.Write("array2["+i+","+ j+"]="+ array2[i, j] + "\t");
+                }
+                Console.WriteLine("\n");
+            }
+        }
+    }
